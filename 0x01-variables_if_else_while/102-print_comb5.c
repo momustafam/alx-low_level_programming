@@ -3,39 +3,40 @@
 /**
  * main - entry point
  *
- * Decription: print all possible combinations of three digits
+ * Decription: print all possible combinations of four digits
  *
  * Return: 0 --> int (Always Success)
 */
 
 int main(void)
 {
+   
+int f = 0, s;
 
-int i, j, k, l;
+while (f <= 99)
+{
+s = f + 1;
 
-for (i = 48; i < 58; i++)
+while (s <= 99)
 {
-for (j = 48; j < 58; j++)
-{
-for (k = i; k < 58; k++)
-{
-for (l = j + 1; l < 58; l++)
-{
-putchar(i);
-putchar(j);
+putchar((f / 10) + 48);
+putchar((f % 10) + 48);
 putchar(' ');
-putchar(k);
-putchar(l);
-if (i == 57 && j == 56 && k == 57 && l == 57)
+putchar((s / 10) + 48);
+putchar((s % 10) + 48);
+
+if (f == 99 && s == 98)
 break;
+
 putchar(',');
 putchar(' ');
-}
-}
-}
-}
 
+s++;
+}
+f++;
+}
+{
+}
 putchar('\n');
-
 return (0);
 }
