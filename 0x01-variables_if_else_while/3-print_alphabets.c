@@ -20,7 +20,7 @@ for (i = 65; i < 91; i++)
 {
 putchar(i);
 }
-putchar("\n");
+putchar('\n');
 
 return (0);
 }
