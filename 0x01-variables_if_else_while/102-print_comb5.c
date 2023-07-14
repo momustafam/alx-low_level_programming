@@ -10,7 +10,6 @@
 
 int main(void)
 {
-   
 int f = 0, s;
 
 while (f <= 99)
@@ -25,7 +24,7 @@ putchar(' ');
 putchar((s / 10) + 48);
 putchar((s % 10) + 48);
 
-if (f == 99 && s == 98)
+if (s == 99 && f == 98)
 break;
 
 putchar(',');
