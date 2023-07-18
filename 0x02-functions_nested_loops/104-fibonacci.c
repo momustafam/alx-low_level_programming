@@ -12,11 +12,11 @@ unsigned long int temp, i = 1, prev = 1, current = 2;
 while (i <= 98)
 {
 i++;
-printf("%lu, ", current);
+printf("%lu, ", prev);
 temp = prev;
 prev = current;
 current += temp;
 }
-printf("%lu\n", current);
+printf("%lu\n", prev);
 return (0);
 }
