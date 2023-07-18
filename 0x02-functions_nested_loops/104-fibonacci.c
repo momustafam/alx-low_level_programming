@@ -8,7 +8,7 @@
 
 int main(void)
 {
-unsigned long int temp, i = 2, prev = 1, current = 1;
+unsigned long int temp, i = 1, prev = 1, current = 2;
 while (i <= 98)
 {
 i++;
