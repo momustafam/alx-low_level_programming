@@ -8,8 +8,8 @@
 
 int main(void)
 {
-unsigned long int temp = 0, i = 0, prev = 1, current = 1;
-while (i <= 96)
+unsigned long int temp, i = 2, prev = 1, current = 1;
+while (i <= 98)
 {
 i++;
 printf("%lu, ", current);
