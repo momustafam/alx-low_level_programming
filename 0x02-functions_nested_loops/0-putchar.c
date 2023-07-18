@@ -1,7 +1,5 @@
 #include <main.h>
 
-int main()
-{
 /**
  * Description: main - entry point will print _putchar string
  *
@@ -9,6 +7,15 @@ int main()
  *
  * Return: NULL
 */
-printf("_putchar\n");
+
+int main()
+{
+char[] str = "_putchar";
+
+for (int i = 0; i < 8; i++)
+{
+_putchar(i);
+}
+_putchar('\n');
 return (0);
 }
