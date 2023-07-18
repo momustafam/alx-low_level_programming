@@ -8,13 +8,13 @@
  * Return: NULL
 */
 
-int main()
+int main(void)
 {
 char[] str = "_putchar";
-
+int i;
 for (int i = 0; i < 8; i++)
 {
-_putchar(i);
+_putchar(str[i]);
 }
 _putchar('\n');
 return (0);
