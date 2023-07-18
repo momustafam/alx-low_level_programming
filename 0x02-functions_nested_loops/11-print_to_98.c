@@ -25,5 +25,6 @@ for (i = n; i < 98; i++)
 printf("%d, ", i);
 }
 }
-printf("%d", 98);
+printf("%d\n", 98);
+return;
 }
