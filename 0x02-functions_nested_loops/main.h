@@ -1,14 +1,6 @@
-#include <stdio.h>
+#ifndef MAIN_H
+#define MAIN_H
 
-/**
- * Description: _putchar - function that print a char using putchar
- *
- * Input: NULL
- *
- * Return: NULL
-*/
+int _putchar(char c);
 
-void _putchar(char chr)
-{
-putchar(chr);
-}
+#endif

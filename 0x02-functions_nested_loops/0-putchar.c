@@ -1,16 +1,17 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
- * Description: main - entry point will print _putchar using _putchar function
+ * main - entry point
  *
- * Input: NULL
+ * Description: print _putchar string using _putchar func
  *
- * Return: NULL
+ * Return: 0 Always Success
 */
 
 int main(void)
 {
-char str[] = "_putchar";
+char *str = "_putchar";
 int i;
 for (i = 0; i < 8; i++)
 {
