@@ -3,13 +3,13 @@
 /**
  * main - entry point
  *
- * Return: Always 0 
+ * Return: Always 0
  */
 
 int main(void)
 {
 long int temp = 0, i = 0, prev = 0, current = 1;
-while (i <= 50)
+while (i < 50)
 {
 i++;
 printf("%ld, ", current);
