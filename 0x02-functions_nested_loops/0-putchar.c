@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main()
+int main()
 {
 /**
  * Description: main - entry point will print _putchar string
@@ -10,5 +10,5 @@ void main()
  * Return: NULL
 */
 printf("_putchar");
-return;
+return (0);
 }
