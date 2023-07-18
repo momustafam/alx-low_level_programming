@@ -1,7 +1,7 @@
 #include <main.h>
 
 /**
- * Description: main - entry point will print _putchar string
+ * Description: main - entry point will print _putchar using _putchar function
  *
  * Input: NULL
  *
