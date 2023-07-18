@@ -27,11 +27,10 @@ if (j != 9)
 {
 _putchar(',');
 _putchar(' ');
+}
 if (num < 10)
 {
-_putchar(' ');
-}
-}
+-putchar(' ');
 }
 _putchar('\n');
 }
