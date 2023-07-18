@@ -9,6 +9,6 @@ int main()
  *
  * Return: NULL
 */
-printf("_putchar");
+printf("_putchar\n");
 return (0);
 }
