@@ -28,9 +28,9 @@ if (j != 9)
 _putchar(',');
 _putchar(' ');
 }
-if (num < 10)
+if (num < 10 && j != 9)
 {
--putchar(' ');
+_putchar(' ');
 }
 _putchar('\n');
 }
