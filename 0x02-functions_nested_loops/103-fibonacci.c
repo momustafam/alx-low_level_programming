@@ -16,7 +16,10 @@ temp = prev;
 prev = current;
 current += temp;
 if (current % 2 == 0)
+{
 sum += current;
 }
+}
 printf("%ld\n", sum);
+return (0);
 }
