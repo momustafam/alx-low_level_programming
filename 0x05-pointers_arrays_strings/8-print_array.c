@@ -6,13 +6,15 @@
  *
  * Input:
  *     @a: [int pointer] --> address of the first element in the array
- *     @n: [int] --> number of elements in the array
+ *     @n: [int] --> number of elements of the array to be printed
  *
  * Return: NULL
  */
 
 void print_array(int *a, int n)
 {
+if (n < 1)
+return;
 int i;
 for (i = 0; i < n-1; i++)
 {
