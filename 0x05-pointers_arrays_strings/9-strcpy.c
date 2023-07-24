@@ -1,20 +1,19 @@
 #include "main.h"
 
 /**
- * Description: _strcpy - cp the str pointed to by src to the buffer pointed by dest
+ * Description: _strcpy - copy a string into another location in the memory
  * Input:
  *     @dest: [char pointer] --> location of the first char for the copied str
  *     @src: [char pointer] --> location of the first char for the original str
  *
- * Return:
- *     dest: [char pionter]
+ * Return: the pointer to dest
+ *     @dest: [char pionter]
  */
 
 char *_strcpy(char *dest, char *src)
 {
 int i = 0;
-do
-{
+do {
 dest[i] = src[i];
 i++;
 } while (src[i - 1] != '\0');
