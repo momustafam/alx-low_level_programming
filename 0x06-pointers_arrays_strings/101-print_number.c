@@ -3,12 +3,13 @@
 /**
  * Description: print_number - print a number
  * Input:
- *	@n: [int] --> the number
+ *	@num: [int] --> the number
  * Return: NULL
  */
 
-void print_number(int n)
+void print_number(int num)
 {
+	unsigned int n = num;
 	if (n < 0)
 	{
 		_putchar('-');
