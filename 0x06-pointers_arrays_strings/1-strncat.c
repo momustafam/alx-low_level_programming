@@ -8,10 +8,9 @@ int _strlen(char *str);
  * Input:
  *	@dest: [char pointer] --> points to the first char of dest string
  *	@src: [char pointer] --> points to the first char of src string
- *      @n: The number of character that will be appended from src
+ *      @n: [int] The number of character that will be appended from src
  *
- * Return:
- *	dest: [char pointer] --> the dest string after appending n chars to it
+ * Return: pointer to the destination string
  */
 
 char *_strncat(char *dest, char *src, int n)
@@ -35,13 +34,12 @@ char *_strncat(char *dest, char *src, int n)
 }
 
 /**
- * Description: strlen - return the length of the string
+ * Description: _strlen - return the length of the string
  *
  * Input:
- *	@src: [char pointer] --> points to the first char of the string
+ *	@str: [char pointer] --> points to the first char of the string
  *
- * Return:
- *	len: [int] --> the length of the character
+ * Return: length of the character
  */
 
 int _strlen(char *str)
