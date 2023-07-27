@@ -10,8 +10,7 @@
 char *rot13(char *str)
 {
 	char alphabets[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rot13_alphabets[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopq\
-		rstuvwxyzabcdefghijklm";
+	char rot13_alpha[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	int i, len = 0;
 
 	while (str[len] != '\0')
@@ -20,7 +19,7 @@ char *rot13(char *str)
 		{
 			if (str[len] == alphabets[i])
 			{
-				str[len] = rot13_alphabets[i];
+				str[len] = rot13_alpha[i];
 				break;
 			}
 		}
