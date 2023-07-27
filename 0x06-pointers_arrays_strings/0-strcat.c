@@ -7,8 +7,7 @@
  *	@dest: [char pointer] --> points to the first char of dest string
  *	@src: [char pointer] --> points to the first char of src string
  *
- * Return:
- *	@dest: [char pointer] --> the dest string after appending src to it
+ * Return: pointer to the destination string
  */
 
 char *_strcat(char *dest, char *src)
