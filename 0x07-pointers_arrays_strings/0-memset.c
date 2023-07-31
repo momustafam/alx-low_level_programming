@@ -1,5 +1,5 @@
 #include "main.h"
-
+0;10;1c
 /**
  * Descritption: _memset - fills n chars of a string with a constant byte
  * Input:
@@ -17,5 +17,5 @@ char *_memset(char *s, char b, unsigned int n)
 	{
 		s[i] = b;
 	}
-	return s;
+	return (s);
 }
