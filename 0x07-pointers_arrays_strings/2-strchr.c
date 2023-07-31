@@ -9,7 +9,7 @@
  *	NULL if the char is not found
  */
 
-char *_memcpy(char *s, char c)
+char *_strchr(char *s, char c)
 {
 	int len = 0;
 
@@ -17,6 +17,7 @@ char *_memcpy(char *s, char c)
 	{
 		if (s[len] == c)
 			return (s + len);
+		len++;
 	}
-	return (NULL);
+	return (0);
 }
