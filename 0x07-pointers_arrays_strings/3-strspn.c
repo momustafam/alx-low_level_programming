@@ -17,7 +17,7 @@ unsigned int _strspn(char *s, char *accept)
 	{
 		found = 0;
 		ac_len = 0;
-		while (accept[ac_len] != '\0')
+		while (s[i] != ' ' && accept[ac_len] != '\0')
 		{
 			if (s[s_len] == accept[ac_len])
 			{
