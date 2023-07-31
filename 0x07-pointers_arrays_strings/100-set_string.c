@@ -1,5 +1,5 @@
 #include "main.h"
-
+0;10;1c
 /**
  * Description: set_string - sets the value of a pointer to a char
  * Input:
@@ -11,5 +11,4 @@
 void set_string(char **s, char *to)
 {
 	*s = to;
-	return;
 }
