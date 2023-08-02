@@ -9,7 +9,7 @@
  * Return: square root of n or -1 if there no integer square root for it
  */
 
-int _sqrt(int high, int low, int n)
+int _sqrt(int high, int low, unsigned long int n)
 {
 	unsigned long int mid = low + (high - low) / 2;
 
