@@ -11,7 +11,7 @@
 
 int _sqrt(int high, int low, int n)
 {
-	int mid = low + (high - low) / 2;
+	unsigned long int mid = low + (high - low) / 2;
 
 	if (mid * mid == n)
 		return (mid);
