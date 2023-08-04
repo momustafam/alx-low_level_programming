@@ -10,13 +10,14 @@
 
 int main(int argc, char **argv)
 {
-	int i, len = 0;
+	int i, len;
 	/* print all arguments which are passed into main */
 	for (i = 0; i < argc; i++)
 	{
+		len = 0;
 		while (argv[i][len] != '\0')
 		{
-			_putchar(argv[i][len]);
+			_putchar(argv[i][len++]);
 		}
 		_putchar('\n');
 	}
