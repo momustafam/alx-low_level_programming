@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		len = 0;
-		
-	       	while (argv[i][len] != '\0')
+
+		while (argv[i][len] != '\0')
 		{
 			if (argv[i][len] < '0' || argv[i][len] > '9')
 			{
