@@ -39,23 +39,17 @@ char *str_concat(char *s1, char *s2)
 			len2++;
 		}
 	}
-
 	concat = malloc(len1 + len2 + 1);
-
 	if (concat == NULL)
 		return ('\0');
-
 	for (i = 0; i < len1; i++)
 	{
 		concat[i] = s1[i];
 	}
-
 	for (i = 0; i < len2; i++)
 	{
 		concat[len1 + i] = s2[i];
 	}
-
 	concat[len1 + len2] = '\0';
-
 	return (concat);
 }
