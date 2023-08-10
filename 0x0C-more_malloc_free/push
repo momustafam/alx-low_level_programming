@@ -4,3 +4,4 @@ chmod u+x .c
 rm ~*
 git add .
 git commit -m "auto pushing"
+git push
