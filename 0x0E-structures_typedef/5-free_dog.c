@@ -1,0 +1,13 @@
+#include "dog.h"
+#include <stdlib.h>
+
+/**
+ * Description: free_dog - frees dogs structs
+ * Input:
+ *	@d: [pointer to dog struct] --> points to a dog struct
+ * Return: NULL
+ */
+void free_dog(dog_t *d)
+{
+	free(d);
+}
