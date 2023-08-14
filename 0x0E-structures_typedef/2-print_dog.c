@@ -18,8 +18,8 @@ void print_dog(struct dog *d)
 	}
 	else
 	{
-		printf("Name: (nail)");
-		printf("Age: (nail)");
-		printf("Owner: (nail)");
+		printf("Name: (nil)");
+		printf("Age: (nil)");
+		printf("Owner: (nil)");
 	}
 }
