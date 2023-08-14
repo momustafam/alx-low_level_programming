@@ -1,0 +1,7 @@
+!#/bin/bash
+
+chmod u+x [[:digit:]].c
+rm ~*
+git add .
+git commit -m "auto pushing"
+git push
