@@ -1,41 +1,43 @@
-#include "3-calc.h"
+#include "function_pointers.h"
+#include <stdlib.h>
 #include <stdio.h>
-
+#include "3-calc.h"
 /**
- * main - a basic calculator
- * @argc: the size of the argument vector
- * @argv: the argument vector
+ * main - Prints the result of simple operations.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
  *
- * Description: This program accepts a number, an operator and another number,
- * in that order. It performs the specified operation and prints the result to
- * standard output (followed by a newline). If called with the wrong number of
- * arguments, it prints "Error" and terminates the process with a status of 98.
- * If the operator given is not one of '+', '-', '*', '/' or '%', it prints
- * "Error" and terminates the process with a status of 99. If asked to perform
- * division by 0 (e.g. using the '/' or '%' operators), it prints "Error" and
- * terminates the process with a status value of 100.
- *
- * Return: Always 0
+ * Return: Always 0.
  */
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
-	int (*f)(int, int);
+	int num1, num2;
+	char *op;
 
 	if (argc != 4)
 	{
-		puts("Error");
+		printf("Error\n");
 		exit(98);
 	}
 
-	f = get_op_func(argv[2]);
+	num1 = atoi(argv[1]);
+	op = argv[2];
+	num2 = atoi(argv[3]);
 
-	if (!f)
+	if (get_op_func(op) == NULL || op[1] != '\0')
 	{
-		puts("Error");
+		printf("Error\n");
 		exit(99);
 	}
 
-	printf("%d\n", f(atoi(argv[1]), atoi(argv[3])));
+	if ((*op == '/' && num2 == 0) ||
+	    (*op == '%' && num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+
+	printf("%d\n", get_op_func(op)(num1, num2));
 
 	return (0);
 }
