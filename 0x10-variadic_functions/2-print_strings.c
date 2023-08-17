@@ -26,7 +26,10 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	for (i = 0; i < n - 1; i++)
 	{
-		printf("%s%s", va_arg(list, char*), separator);
+		char *s = va_arg(list, char*);
+		if (s == NULL)
+			s = "(nil)";
+		printf("%s%s", s, separator);
 	}
 
 	printf("%s\n", va_arg(list, char*));
