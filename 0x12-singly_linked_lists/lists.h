@@ -1,7 +1,8 @@
 #ifndef LISTS
 #define LISTS
-#include <stddef.h>
 
+#include <stddef.h>
+#include <stdlib.h>
 /**
  * Description: list_t - single linked list
  * @str: [pointer to string] --> a string
