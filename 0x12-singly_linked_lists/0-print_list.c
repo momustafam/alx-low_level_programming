@@ -10,7 +10,7 @@
  */
 size_t print_list(list_t *h)
 {
-	int i = 0;
+	size_t i = 0;
 	list_t *temp = h;
 
 	while (1)
