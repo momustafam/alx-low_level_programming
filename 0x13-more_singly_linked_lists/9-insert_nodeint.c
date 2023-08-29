@@ -19,7 +19,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	new->n = n;
 	new->next = NULL;
-	/* if the list is empty and idx = 0 insert a new node at the begining */
+
 	if (!temp && idx == 0)
 	{
 		*head = new;
@@ -27,15 +27,15 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	}
 	else if (!temp && idx != 0)
 		return (NULL);
-	/* else if the list is empty and idx != 0 return NULL */
-	/* loop over the nodes of the linked list */
+	else if (idx == 0)
+	{
+		new->next = *head;
+		*head = new;
+		return (new);
+	}
+
 	while (temp)
 	{
-		/*
-		 * if count equal to idx - 1 then make the new node points
-		 * to countth->next node then make the countth node points
-		 * to the new node
-		 */
 		if (count == idx - 1)
 		{
 			new->next = temp->next;
@@ -49,7 +49,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		temp->next = new;
 		return (new);
-	}	
-	/* return NULL because it failed to insert a new node */
+	}
 	return (NULL);
 }
