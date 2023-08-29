@@ -31,4 +31,5 @@ void free_listint2(listint_t **head)
 
 	/* set the head pointer to NULL */
 	*head = NULL;
+	head = NULL;
 }
