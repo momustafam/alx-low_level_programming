@@ -11,7 +11,7 @@ void free_listint2(listint_t **head)
 	/* set temp pointer which points to a node */
 	listint_t *temp = *head;
 	/* check if the list is empty exit the program */
-	if (!temp)
+	if (!temp || !head)
 		return;
 	/* loop over the linked list nodes */
 	/*
@@ -31,5 +31,4 @@ void free_listint2(listint_t **head)
 
 	/* set the head pointer to NULL */
 	*head = NULL;
-	head = NULL;
 }
