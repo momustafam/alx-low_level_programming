@@ -8,10 +8,14 @@
  */
 void free_listint2(listint_t **head)
 {
-	/* set temp pointer which points to a node */
-	listint_t *temp = *head;
+	listint_t *temp;
 	/* check if the list is empty exit the program */
-	if (!temp || !head)
+	if (!head)
+		return;
+
+	temp = *head;
+	
+	if (!temp)
 		return;
 	/* loop over the linked list nodes */
 	/*
