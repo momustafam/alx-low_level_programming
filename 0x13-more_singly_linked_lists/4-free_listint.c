@@ -14,7 +14,8 @@ void free_listint(listint_t *head)
 	if (!temp)
 		return;
 	/* loop over the linked list nodes */
-	/* if the ith node is the last node break the loop
+	/* 
+	 * if the ith node is the last node break the loop
 	 * else
 	 *	set the head pointer to next node and remove the current
 	 *	node using temp pointer
