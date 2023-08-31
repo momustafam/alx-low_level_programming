@@ -13,10 +13,13 @@ int _strlen(const char *);
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int ans = 0, pow = 1;
-	int len = _strlen(b) - 1;
+	int len;
 
 	if (b == NULL)
 		return (0);
+
+	len = _strlen(b);
+
 	while (1)
 	{
 		if (len < 0)
