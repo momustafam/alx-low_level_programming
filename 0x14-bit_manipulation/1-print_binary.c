@@ -39,6 +39,7 @@ void print_binary(unsigned long int n)
 		ans[len - i] = '1';
 	}
 	printf("%s", ans);
+	free(ans);
 }
 
 
