@@ -18,7 +18,7 @@ void print_binary(unsigned long int n)
 		printf("0");
 		return;
 	}
-	
+
 	first_one(&n, &i);
 	len = i;
 	ans = malloc(sizeof(char) * len);
@@ -32,7 +32,7 @@ void print_binary(unsigned long int n)
 	}
 
 	ans[0] = '1';
-	
+
 	while (n > 0)
 	{
 		first_one(&n, &i);
@@ -47,7 +47,8 @@ void print_binary(unsigned long int n)
  * Description: first_one - returns index of first one in binary representation
  * of an integer
  * Input:
- *	n: (unsigned long int): a number in base 10
+ *	@n: (unsigned long int): a number in base 10
+ *	@i: (unsigned long int): index
  * Return: NULL
  */
 void first_one(unsigned long int *n, unsigned long int *i)

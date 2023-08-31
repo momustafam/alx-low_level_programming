@@ -8,15 +8,15 @@
  */
 int main(void)
 {
-    print_binary(0);
+    print_binary(27);
     printf("\n");
-    print_binary(1);
+    print_binary(9);
     printf("\n");
-    print_binary(98);
+    print_binary(255);
     printf("\n");
-    print_binary(1024);
+    print_binary(42);
     printf("\n");
-    print_binary((1 << 10) + 1);
+    print_binary(79);
     printf("\n");
     return (0);
 }
