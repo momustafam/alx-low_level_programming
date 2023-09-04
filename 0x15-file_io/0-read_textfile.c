@@ -18,11 +18,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *buffer = calloc(letters + 1, sizeof(char));
 
 	fp = open(filename, O_RDONLY);
-	sz = read(fp, buffer, letters);
-
-	if (sz < 0 || close(fp) < 0)
+	
+	if (fp == -1)
 		return (0);
 
-	printf("%s\n", buffer);
-		return (sz);
+	sz = read(fp, buffer, letters);
+
+	if (sz < 0)
+	{
+		close(fp);
+		return (0);
+	}
+
+	printf("%s", buffer);
+	close(fp);
+	return (sz);
 }
