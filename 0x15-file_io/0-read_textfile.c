@@ -1,37 +1,29 @@
-#include "main.h"
-
-/**
- * Description: read_textfile - reads a text file and prints it to the
- * POSIX standard output.
- * Input:
- *	@filename: (pointer to const char): pointer to a file
- *	@letters: (size_t): number of characters it should read and print
- * Return:
- *	-the actual number of characters it could read and print
- *	- 0 if the file can not be opened or read, the filename is NULL, or
- *	write fails or does not write the expected amount of bytes
- */
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fp, sz;
-	char *buffer = calloc(letters + 1, sizeof(char));
+	int fd_read, count_chars, fd_open;
+	char *buf_letters;
 
-	fp = open(filename, O_RDONLY);
-
-	if (fp == -1)
+	if (filename == NULL)
 		return (0);
-
-	sz = read(fp, buffer, letters);
-
-	if (sz <= 0)
+	fd_open = open(filename, O_RDONLY);
+	if (fd_open == -1)
+		return (0);
+	buf_letters = malloc(sizeof(char) * letters);
+	if (buf_letters == NULL)
+		return (0);
+	fd_read = read(fd_open, buf_letters, letters);
+	if (fd_read == -1)
 	{
-		close(fp);
+		free(buf_letters);
 		return (0);
 	}
-
-	buffer[letters] = '\0';
-	printf("%s", buffer);
-	close(fp);
-	return (sz);
+	count_chars = write(STDOUT_FILENO, buf_letters, fd_read);
+	if (count_chars == -1)
+	{
+		free(buf_letters);
+		return (0);
+	}
+	close(fd_open);
+	free(buf_letters);
+	return (count_chars);
 }
