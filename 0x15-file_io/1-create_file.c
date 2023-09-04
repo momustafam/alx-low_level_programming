@@ -1,5 +1,7 @@
 #include "main.h"
 
+int _strlen(char *);
+
 /**
  * Description: create_file - function that creates a file
  * Input:
