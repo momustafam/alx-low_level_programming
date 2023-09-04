@@ -15,13 +15,13 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fp, sz;
-	char *buffer = calloc(letters + 10, sizeof(char));
+	char *buffer = calloc(letters + 1, sizeof(char));
 
 	fp = open(filename, O_RDONLY);
 	sz = read(fp, buffer, letters);
 
 	if (sz < 0 || close(fp) < 0)
-		return (sz);
+		return (0);
 
 	printf("%s\n", buffer);
 		return (sz);
