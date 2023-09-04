@@ -1,70 +1,58 @@
 #include "main.h"
 #define BUF_SIZE 1024
 
-void cp(char *, char *);
 void close_file(int FD);
 
 /**
- * Description: main - main function
- * Input:
- *	@argc: (int): number of arguments
- *	@argv: (pointer to array of strings): array of arguments
- * Return: always 1
+ * main - entry point
+ * @argc: number of arguments passed to the function.
+ * @argv: two files.
+ *
+ * Return: integer number.
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
+	int inputFD, outputFD, nBytes_read, nBytes_write;
+	char text[BUF_SIZE];
+
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
-	cp(argv[1], argv[2]);
-
-	return (1);
-}
-
-
-/**
- * Description: cp - copies content of a file to another file
- * Input:
- *	@src: (pointer to string): name of the source file
- *	@dest: (opinter to string): name of the destenation file
- * Return: NULL
- */
-void cp(char *src, char *dest)
-{
-	char *buff[BUF_SIZE];
-	int srcp, src_open, destp, dest_open;
-
-	src_open = open(src, O_RDONLY);
-	if (src_open == -1)
+	inputFD = open(argv[1], O_RDONLY);
+	if (inputFD == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", src);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+			argv[1]);
 		exit(98);
 	}
-	
-	dest_open = open(dest, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((srcp = read(src_open, buff, BUF_SIZE)) > 0)
+	outputFD = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	if (outputFD == -1)
 	{
-		destp = write(dest_open, buff, srcp);
-		if (destp == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
+	while ((nBytes_read = read(inputFD, text, BUF_SIZE)) > 0)
+	{
+		nBytes_write = write(outputFD, text, nBytes_read);
+		if (nBytes_write == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", dest);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n",
+				argv[2]);
 			exit(99);
 		}
 	}
-
-	if (srcp == -1)
+	if (nBytes_read == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n",src);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
+			argv[1]);
 		exit(98);
 	}
-	close_file(src_open);
-	close_file(dest_open);
+	close_file(inputFD);
+	close_file(outputFD);
+	return (0);
 }
-
-
 
 /**
  * close_file - close a opened file
