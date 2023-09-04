@@ -18,10 +18,10 @@ int create_file(const char *filename, char *text_content)
 	if (text_content == NULL)
 		text_content = '\0';
 
-	fp = open(filename, O_CREAT | O_WRONLY, 0600);
+	fp = open(filename, O_WRONLY);
 
 	if (fp < 0)
-		return (-1);
+		fp = open(filename, O_CREAT, 0600);
 
 	fp = write(fp, text_content, sizeof(text_content));
 
