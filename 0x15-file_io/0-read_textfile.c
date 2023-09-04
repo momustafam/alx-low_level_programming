@@ -17,6 +17,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int fp, sz;
 	char *buffer = calloc(letters + 1, sizeof(char));
 
+	if (filename == NULL)
+		return (0);
+
 	fp = open(filename, O_RDONLY);
 
 	if (fp == -1)
