@@ -15,14 +15,13 @@ hash_table_t *hash_table_create(unsigned long int size)
 		return (NULL);
 
 	hash_table->array = calloc(size, sizeof(hash_node_t *));
+	hash_table->size = size;
 
 	if (!(hash_table->array))
 	{
 		free(hash_table);
 		return (NULL);
 	}
-
-	hash_table->size = size;
 
 	return (hash_table);
 }
