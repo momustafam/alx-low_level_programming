@@ -38,7 +38,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		new_elem->next = temp;
 	}
 
-	temp = ht->array[index];
-	printf("key = %s - value = %s\n", temp->key, temp->value);
 	return (1);
 }
