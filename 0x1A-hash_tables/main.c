@@ -16,5 +16,6 @@ int main(void)
     hash_table_set(ht, "betty", "");
     hash_table_set(ht, "stylist", "1");
     hash_table_set(ht, "subgenera", "2");
+    hash_table_set(ht, "stylist", "updated");
     return (EXIT_SUCCESS);
 }

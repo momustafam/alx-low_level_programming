@@ -1,5 +1,6 @@
 #include "hash_tables.h"
-#include <stdio.h>
+
+int updated(hash_node_t *, const char *, const char *);
 
 /**
  * hash_table_set - add an element to the hash table
@@ -31,16 +32,46 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	/* location of the new element in the given hash table */
 	index = hash_djb2((unsigned const char *) key) % ht->size;
+	temp = ht->array[index];
 
-	/* add the new element and handle the collision */
-	if (!(ht->array[index]))
+	/* add/update an element and handle the collision */
+	if (!temp)
 		ht->array[index] = new_elem;
 	else
 	{
-		temp = ht->array[index];
-		ht->array[index] = new_elem;
-		new_elem->next = temp;
+		if (!updated(temp, key, value))
+		{
+			temp = ht->array[index];
+			ht->array[index] = new_elem;
+			new_elem->next = temp;
+		}
 	}
 
 	return (1);
+}
+
+
+
+/**
+ * updated - check if a key in a given non-empty list or not and update it
+ *
+ * @head: head of the given list
+ * @key: key of the element
+ * @new_value: the updated or the new value
+ *
+ * Return: 1 if the key was found and updated, 0 otherwise
+ */
+int updated(hash_node_t *head, const char *key, const char *new_value)
+{
+	while (head)
+	{
+		if (strcmp(head->key, key) == 0)
+		{
+			head->value = realloc(head->value, sizeof(new_value));
+			strcpy(head->value, new_value);
+			return (1);
+		}
+		head = head->next;
+	}
+	return (0);
 }
