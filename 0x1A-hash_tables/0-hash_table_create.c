@@ -3,7 +3,7 @@
 /**
  * hash_table_create - creates a hash table
  *
- * @size - the size of the array of the hash table
+ * @size: the size of the array of the hash table
  *
  * Return: a pointer to the newly created hash table
  */
@@ -16,6 +16,8 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	hash_table->size = size;
 	hash_table->array = calloc(size, sizeof(hash_node_t));
+	if (!(hash_table->array))
+		return NUll
 
 	return (hash_table);
 }
