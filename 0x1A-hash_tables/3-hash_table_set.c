@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *temp, *new_elem;
 	unsigned long int index;
 
-	if (!ht || !key)
+	if (!ht || !(ht->size) || !(ht->array) || !key || *key == '\0')
 		return (0);
 
 	/* create a new element and assign its key/value */
