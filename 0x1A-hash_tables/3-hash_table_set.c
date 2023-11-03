@@ -12,13 +12,14 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *temp, *new_elem = malloc(sizeof(hash_node_t *));
+	hash_node_t *temp, *new_elem;
 	unsigned long int index;
 
 	if (!ht || !key)
 		return (0);
 
 	/* create a new element and assign its key/value */
+	new_elem = malloc(sizeof(hash_node_t *));
 	new_elem->key = malloc(sizeof(key));
 	strcpy(new_elem->key, key);
 	if (value)
