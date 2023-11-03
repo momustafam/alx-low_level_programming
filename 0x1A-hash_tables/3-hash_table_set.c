@@ -18,13 +18,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !key)
 		return (0);
 
-	value = (!value) ? "" : value;
-
 	/* create a new element and assign its key/value */
 	new_elem->key = malloc(sizeof(key));
 	strcpy(new_elem->key, key);
-	new_elem->value = malloc(sizeof(value));
-	strcpy(new_elem->value, value);
+	if (value)
+	{
+		new_elem->value = malloc(sizeof(value));
+		strcpy(new_elem->value, value);
+	}
 	new_elem->next = NULL;
 
 	/* location of the new element in the given hash table */
