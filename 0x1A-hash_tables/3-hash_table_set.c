@@ -32,7 +32,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = new_elem;
 	else
 	{
-		temp = ht->array[index]
+		temp = ht->array[index];
 		ht->array[index] = new_elem;
 		new_elem->next = temp;
 	}
