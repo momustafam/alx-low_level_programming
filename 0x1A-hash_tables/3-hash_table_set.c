@@ -11,7 +11,7 @@
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_elem = malloc(sizeof(hash_node_t *));
+	hash_node_t *temp, *new_elem = malloc(sizeof(hash_node_t *));
 	unsigned long int index;
 
 	if (!ht || !key || !value)
@@ -28,12 +28,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = hash_djb2((unsigned const char *) key) % ht->size;
 
 	/* add the new element and handle the collision */
-	if (!ht->array[index])
+	if (!(ht->array[index]))
 		ht->array[index] = new_elem;
 	else
 	{
-		new_elem->next = ht->array[index];
+		temp = ht->array[index]
 		ht->array[index] = new_elem;
+		new_elem->next = temp;
 	}
 
 	return (1);
