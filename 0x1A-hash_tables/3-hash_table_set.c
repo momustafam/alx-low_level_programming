@@ -53,7 +53,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 
 /**
- * updated - check if a key in a given non-empty list or not and update it
+ * updated - update value of a key if it exist
  *
  * @head: head of the given list
  * @key: key of the element
