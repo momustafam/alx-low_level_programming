@@ -19,32 +19,33 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !(ht->size) || !(ht->array) || !key || *key == '\0')
 		return (0);
 
+	/* location of the element in the given hash table */
+	index = hash_djb2((unsigned const char *) key) % ht->size;
+	temp = ht->array[index];
+
+	/* update the value of a key if the key exists in the hash table */
+	if (updated(temp, key, value))
+		return (1);
+
 	/* create a new element and assign its key/value */
-	new_elem = malloc(sizeof(hash_node_t *));
-	new_elem->key = malloc(sizeof(key));
+	new_elem = malloc(sizeof(hash_node_t));
+	new_elem->key = malloc(sizeof(char) * (strlen(key) + 1));
 	strcpy(new_elem->key, key);
 	if (value)
 	{
-		new_elem->value = malloc(sizeof(value));
+		new_elem->value = malloc(sizeof(char) * (strlen(value) + 1));
 		strcpy(new_elem->value, value);
 	}
 	new_elem->next = NULL;
 
-	/* location of the new element in the given hash table */
-	index = hash_djb2((unsigned const char *) key) % ht->size;
-	temp = ht->array[index];
-
-	/* add/update an element and handle the collision */
+	/* add an element and handle the collision */
 	if (!temp)
 		ht->array[index] = new_elem;
 	else
 	{
-		if (!updated(temp, key, value))
-		{
-			temp = ht->array[index];
-			ht->array[index] = new_elem;
-			new_elem->next = temp;
-		}
+		temp = ht->array[index];
+		ht->array[index] = new_elem;
+		new_elem->next = temp;
 	}
 
 	return (1);
@@ -67,7 +68,8 @@ int updated(hash_node_t *head, const char *key, const char *new_value)
 	{
 		if (strcmp(head->key, key) == 0)
 		{
-			head->value = realloc(head->value, sizeof(new_value));
+			free(head->value);
+			head->value = malloc(sizeof(char) * (strlen(new_value) + 1));
 			strcpy(head->value, new_value);
 			return (1);
 		}
